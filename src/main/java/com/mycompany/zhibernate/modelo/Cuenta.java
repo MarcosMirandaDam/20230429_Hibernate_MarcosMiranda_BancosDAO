@@ -1,6 +1,6 @@
+
 package com.mycompany.zhibernate.modelo;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,9 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,29 +27,27 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "sucursal")
-public class Sucursal implements Serializable{
+@Table(name = "Cuenta")
+public class Cuenta {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     
-    @Column(name="numero")
-    private int numero;
-    @Column(name="telefono")
-    private int telefono;
-    @Column(name="email")
-    private String email;
-    @Column(name="fax")
-    private int fax;
+    @Column(name="numeroCC")
+    private String numeroCC;
+    @Column(name="saldo")
+    private float saldo;
+    @Column(name="divisa")
+    private String divisa;
     
-    @OneToMany(cascade=CascadeType.ALL)             //una sucursal tiene una lista de clientes
-    @JoinColumn(name="IdSucursal")
-    List<Cliente>listaClientes;
+    @ManyToOne
+    @JoinColumn(name="IdCliente")
+    private Cliente cliente;
     
-    @OneToOne(cascade=CascadeType.ALL)              //una sucursal tiene una direccion
-    @PrimaryKeyJoinColumn
-    private Direccion direccion;
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name="IdCuenta")
+    private List<Movimiento> listaMovimientos;
     
 }

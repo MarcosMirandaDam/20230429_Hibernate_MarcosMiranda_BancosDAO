@@ -1,11 +1,14 @@
 package com.mycompany.zhibernate.modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,28 +19,30 @@ import lombok.Setter;
  *
  * @author Marcos Miranda
  */
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Direccion")
-public class Direccion implements Serializable{
+@Table(name = "Movimiento")
+public class Movimiento implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     
-    @Column(name="calle")
-    private String calle;
-    @Column(name="cp")
-    private int cp;
-    @Column(name="ciudad")
-    private String ciudad;
-    @Column(name="provincia")
-    private String provincia;
+    @Column(name="idMovimiento")
+    private int idMovimiento;
+    @Column(name="cantidad")
+    private float cantidad;
+    @Column(name="concepto")
+    private String concepto;
+    @Column(name="fecha")
+    private Date fecha;
     
+    @ManyToOne
+    @JoinColumn(name="IdCuenta")
+    private Cuenta cuenta;
     
 }

@@ -2,6 +2,8 @@ package com.mycompany.zhibernate.modelo;
 
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,4 +45,8 @@ import lombok.Setter;
     @ManyToOne
     @JoinColumn(name="IdSucursal")
     private Sucursal sucursal;
+    
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name="IdCliente")
+    private List<Cuenta> listaCuentasCorrientes;
 }
