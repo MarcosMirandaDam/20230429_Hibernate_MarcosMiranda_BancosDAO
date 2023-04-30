@@ -1,6 +1,6 @@
 com\mycompany\zhibernate\modelo\Cliente.class
+com\mycompany\zhibernate\SucursalDAOImplementacion.class
 com\mycompany\zhibernate\util\HibernateUtil.class
-principal\SucursalDAOImplementacion.class
-principal\SucursalDAO.class
+com\mycompany\zhibernate\SucursalDAO.class
 com\mycompany\zhibernate\modelo\Sucursal.class
-principal\ZHibernateBancos.class
+com\mycompany\zhibernate\ZHibernateBancos.class

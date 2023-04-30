@@ -1,5 +1,4 @@
-
-package principal;
+package com.mycompany.zhibernate;
 
 import com.mycompany.zhibernate.modelo.Sucursal;
 import java.util.List;

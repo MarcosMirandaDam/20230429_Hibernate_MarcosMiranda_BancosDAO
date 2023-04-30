@@ -14,10 +14,8 @@
         
 
         <mapping class="com.mycompany.zhibernate.modelo.Sucursal" />
-        <mapping class="com.mycompany.zhibernate.modelo.Direccion" />
         <mapping class="com.mycompany.zhibernate.modelo.Cliente" />
-         <mapping class="com.mycompany.zhibernate.modelo.Cuenta" />
-         <mapping class="com.mycompany.zhibernate.modelo.Movimiento" />
+         
         
     </session-factory>
 </hibernate-configuration>
